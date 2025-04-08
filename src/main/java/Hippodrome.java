@@ -2,6 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Hippodrome {
+    static class AnsiColors {
+        public static final String RESET = "\u001B[0m";
+        public static final String RED = "\u001B[31m";
+        public static final String PURPLE = "\u001B[35m";
+        public static final String TURQUOISE = "\u001B[36m";
+    }
     static Hippodrome game;
     private List<Horse> horses;
 
@@ -57,9 +63,9 @@ public class Hippodrome {
 
     public static void main(String[] args) {
         ArrayList<Horse> horses = new ArrayList<>();
-        horses.add(new Horse("\uD83D\uDC0E", 3, 0));
-        horses.add(new Horse("Brown horse", 3, 0));
-        horses.add(new Horse("White horse", 3, 0));
+        horses.add(new Horse(AnsiColors.PURPLE + "Midnight" + "\uD83D\uDC0E" + AnsiColors.RESET, 3, 0));
+        horses.add(new Horse(AnsiColors.RED + "Wildfire" + "\uD83D\uDC0E" + AnsiColors.RESET, 3, 0));
+        horses.add(new Horse(AnsiColors.TURQUOISE + "Kingston" + "\uD83D\uDC0E" + AnsiColors.RESET, 3, 0));
         game = new Hippodrome(horses);
         game.run();
         game.printWinner();
